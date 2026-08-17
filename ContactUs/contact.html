@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us · Recall</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBEFEF;
+    --blush:#FFE2E2;
+    --rose:#F5CBCB;
+    --lilac:#C5B3D3;
+    --ink:#3A2E3A;
+    --ink-soft:#7A6A78;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Manrope',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+  }
+  .wrap{
+    width:100%;
+    max-width:1000px;
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    background:#fff;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(197,179,211,0.45);
+  }
+  /* Left: card-stack panel */
+  .side{
+    background:linear-gradient(160deg,var(--lilac) 0%, var(--rose) 100%);
+    padding:56px 40px;
+    color:#fff;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    overflow:hidden;
+  }
+  .side h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:2.3rem;
+    line-height:1.15;
+  }
+  .side p{
+    margin-top:14px;
+    font-size:0.95rem;
+    opacity:0.92;
+    max-width:280px;
+  }
+  .deck{
+    position:relative;
+    height:150px;
+    margin-top:40px;
+  }
+  .deck .card{
+    position:absolute;
+    width:130px;
+    height:80px;
+    background:rgba(255,255,255,0.16);
+    border:1px solid rgba(255,255,255,0.4);
+    border-radius:12px;
+    backdrop-filter:blur(2px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Fraunces',serif;
+    font-size:0.8rem;
+    transition:transform .4s ease;
+  }
+  .deck .card:nth-child(1){transform:rotate(-8deg) translate(0,10px);}
+  .deck .card:nth-child(2){transform:rotate(3deg) translate(20px,0px);background:rgba(255,255,255,0.24);}
+  .deck .card:nth-child(3){transform:rotate(-2deg) translate(45px,18px);background:rgba(255,255,255,0.32);}
+  .side:hover .card:nth-child(1){transform:rotate(-12deg) translate(-6px,14px);}
+  .side:hover .card:nth-child(2){transform:rotate(6deg) translate(24px,-4px);}
+  .side:hover .card:nth-child(3){transform:rotate(1deg) translate(48px,22px);}
+
+  .contact-meta{font-size:0.85rem;line-height:1.9;opacity:0.95;}
+  .contact-meta a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.5);}
+
+  /* Right: form */
+  .form-side{padding:56px 48px;}
+  .eyebrow{
+    font-size:0.75rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    font-weight:600;
+  }
+  .form-side h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.9rem;
+    margin-top:8px;
+    margin-bottom:6px;
+  }
+  .form-side > p{
+    color:var(--ink-soft);
+    font-size:0.92rem;
+    margin-bottom:30px;
+  }
+  form{display:flex;flex-direction:column;gap:20px;}
+  .row{display:flex;gap:16px;}
+  .field{flex:1;position:relative;}
+  label{
+    display:block;
+    font-size:0.78rem;
+    font-weight:600;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+  input, textarea, select{
+    width:100%;
+    border:1.5px solid var(--blush);
+    background:var(--cream);
+    border-radius:12px;
+    padding:12px 14px;
+    font-family:'Manrope',sans-serif;
+    font-size:0.94rem;
+    color:var(--ink);
+    outline:none;
+    transition:border-color .2s, background .2s;
+  }
+  textarea{resize:vertical;min-height:100px;}
+  input:focus, textarea:focus, select:focus{
+    border-color:var(--lilac);
+    background:#fff;
+  }
+  .topic-chips{display:flex;gap:8px;flex-wrap:wrap;}
+  .chip{
+    padding:8px 14px;
+    border-radius:999px;
+    border:1.5px solid var(--blush);
+    background:var(--cream);
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:all .2s;
+  }
+  .chip.active, .chip:hover{
+    background:var(--lilac);
+    border-color:var(--lilac);
+    color:#fff;
+  }
+  button[type=submit]{
+    margin-top:6px;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    background:var(--ink);
+    color:#fff;
+    font-family:'Manrope',sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    cursor:pointer;
+    transition:background .25s, transform .15s;
+  }
+  button[type=submit]:hover{background:#563f56;transform:translateY(-1px);}
+  button[type=submit]:active{transform:translateY(0);}
+
+  .status{
+    margin-top:14px;
+    font-size:0.86rem;
+    font-weight:600;
+    color:var(--lilac);
+    display:none;
+  }
+  .status.show{display:block;}
+
+  @media (max-width:760px){
+    .wrap{grid-template-columns:1fr;}
+    .side{padding:40px 30px;}
+    .form-side{padding:40px 30px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="side">
+    <div>
+      <h1>Let's talk<br>spaced&nbsp;out.</h1>
+      <p>Stuck on a quiz set, found a bug in your review streak, or just want to say hi — drop it below.</p>
+    </div>
+
+    <div class="deck">
+      <div class="card">Q1</div>
+      <div class="card">Q2</div>
+      <div class="card">Q3</div>
+    </div>
+
+    <div class="contact-meta">
+      hello@recallapp.io<br>
+      Mon–Fri, 10am–6pm IST<br>
+      <a href="#">@recallapp</a>
+    </div>
+  </div>
+
+  <div class="form-side">
+    <div class="eyebrow">Contact Us</div>
+    <h2>Send us a message</h2>
+    <p>We usually reply within one review cycle (24 hrs).</p>
+
+    <form id="contactForm">
+      <div class="row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" required placeholder="Nitin Singh">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" required placeholder="you@email.com">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>What's this about?</label>
+        <div class="topic-chips" id="chips">
+          <div class="chip active" data-val="Bug">Bug</div>
+          <div class="chip" data-val="Feature idea">Feature idea</div>
+          <div class="chip" data-val="Account">Account</div>
+          <div class="chip" data-val="Other">Other</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" required placeholder="Tell us what's on your mind..."></textarea>
+      </div>
+
+      <button type="submit">Send message</button>
+      <div class="status" id="status">Message sent — check your inbox for confirmation.</div>
+    </form>
+  </div>
+</div>
+
+<script>
+  const chips = document.querySelectorAll('.chip');
+  chips.forEach(c => c.addEventListener('click', () => {
+    chips.forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+  }));
+
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('status');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const topic = document.querySelector('.chip.active').dataset.val;
+    const data = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      topic,
+      message: document.getElementById('message').value
+    };
+    // Replace with your MERN backend endpoint
+    // fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) })
+
+    console.log('Contact form submitted:', data);
+    status.classList.add('show');
+    form.reset();
+    chips.forEach(x => x.classList.remove('active'));
+    chips[0].classList.add('active');
+    setTimeout(() => status.classList.remove('show'), 4000);
+  });
+</script>
+
+</body>
+</html>

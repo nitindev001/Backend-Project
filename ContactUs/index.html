@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us · Recall</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="wrap">
+  <div class="side">
+    <div>
+      <h1>Let's talk<br>spaced&nbsp;out.</h1>
+      <p>Stuck on a quiz set, found a bug in your review streak, or just want to say hi — drop it below.</p>
+    </div>
+
+    <div class="deck">
+      <div class="card">Q1</div>
+      <div class="card">Q2</div>
+      <div class="card">Q3</div>
+    </div>
+
+    <div class="contact-meta">
+      hello@recallapp.io<br>
+      Mon–Fri, 10am–6pm IST<br>
+      <a href="#">@recallapp</a>
+    </div>
+  </div>
+
+  <div class="form-side">
+    <div class="eyebrow">Contact Us</div>
+    <h2>Send us a message</h2>
+    <p>We usually reply within one review cycle (24 hrs).</p>
+
+    <form id="contactForm">
+      <div class="row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" required placeholder="Nitin Singh">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" required placeholder="you@email.com">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>What's this about?</label>
+        <div class="topic-chips" id="chips">
+          <div class="chip active" data-val="Bug">Bug</div>
+          <div class="chip" data-val="Feature idea">Feature idea</div>
+          <div class="chip" data-val="Account">Account</div>
+          <div class="chip" data-val="Other">Other</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" required placeholder="Tell us what's on your mind..."></textarea>
+      </div>
+
+      <button type="submit">Send message</button>
+      <div class="status" id="status">Message sent — check your inbox for confirmation.</div>
+    </form>
+  </div>
+</div>
+
+
+
+</body>
+</html>
